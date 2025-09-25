@@ -1,4 +1,4 @@
-#header {
+#all {
 height: 146px ;
 width: 100%;
 }
@@ -17,7 +17,7 @@ body {
     filter: url(#wavy2);
   }
 
-#navigation ul   {position: relative;
+nav ul   {position: relative;
 list-style-type: none;
 text-align: center;
 font-size: 22px;
@@ -29,7 +29,7 @@ font-family: "IMMORTAL";
     margin-left: auto;
     margin-right: auto;
   }
-  #navigation ul li {
+nav ul li {
     display: inline-block;
     padding: 10px;
 }
@@ -46,7 +46,7 @@ font-size: larger;}
   src: url('../fuentes/IMMORTAL.ttf') format('truetype')
 }
 
-#footnote {font-size: smaller;
+footer {font-size: smaller;
 position: absolute;
 bottom: 1%;
 display: inline-block;
@@ -60,6 +60,12 @@ a:link {color: black;}
 a:visited {color: black;}
 
 #gallery {width:100%;
+}
+#gallery img {
+  width: 60%;
+  height: 60%;
+  display: block;
+  margin: auto;
 }
 
 #gallery figure {
@@ -106,7 +112,7 @@ font-family: "IMMORTAL", Arial;
   background-color: beige;
 }
 
-#footnote img {
+footer img {
   width: 40px; height: 40px; box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
 }
 

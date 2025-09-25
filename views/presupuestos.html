@@ -4,18 +4,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ETGaming Home</title>
+        <title>ETGaming Comisiones</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <div id="header">
-            <img id="logo" src="../imagenes/logo.png" alt="ETGaming" >
-
+        <div id="all">
+        <header>
+            <img id="logo" src="../imagenes/logo.png" alt="ETGaming" width="186" height="106">
+        </header>
         <div id="body">
             </div>
-            <div id="navigation">
+            <nav>
                 <ul class="menu">
                     <li><a href="../index.html">Home</a></li>
                     <li ><a href="productos.html"> Productos </a></li>
@@ -23,13 +24,13 @@
                     <li><a href="contacto.html"> Contacto </a></li>
 
                 </ul>
-            </div>
+            </nav>
         <div id="formulario"> <!--El contenido de la web esta en inglés para ser potencialmente reutilizable en un futuro-->
          <form action="envio" method="post">
             <ul>
-                <li>Name: <input type="text" name="nombre" required></li>
-                <li>Email: <input type="email" name="email" value="@gmail.com" required>  </li>
-                <li>Phone Number:  <input type="tel" name="Phone" required>  </li>
+                <li>Name: <input type="text" name="nombre" pattern="[A-Za-z \s]{1,99}" title="Names can't contain numbers or special characters" required> </li>
+                <li>Email: <input type="email" name="email" value="@gmail.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Not a valid email format" required>  </li>
+                <li>Phone Number:  <input type="tel" name="Phone" pattern="[0-9 \s]{9}" required>  </li> <!--Esto solo funcionaría para telefonos españoles sin prefijos de país, pero no quería sobrecomplicar el pattern en este ejercicio con la poca documentación que hay sobre el en internet en general-->
                  <li>More info: <br> <textarea cols="30" rows="6" name="info" placeholder="Request more info"></textarea>  </li>
             </ul>
             <br>
@@ -48,12 +49,13 @@
         </div>
         </div>
 
-        <div id="footnote">
-            <a href="https://x.com/PF2epic">
-                <img src="../imagenes/HD Twitter X New Logo PNG.jpeg" alt="Twitter" > <!--He buscado bastante y no he podido encontrar una versión del logo con fondo transparente, pero esta versión medio estilizada me parece que queda bien-->
-            </a>
-            <p>Images, logos, and text are protected by appropriate copyright and trademark. Please do not copy or redistribute without written authorization.</p>
-            <p>Calle Imaginaria 54, 33</p>
-        </div>
+        <footer>
+                <a href="https://x.com/PF2epic">
+                    <img src="../imagenes/HD Twitter X New Logo PNG.jpeg" alt="Twitter" width="736" height="736"> <!--He buscado bastante y no he podido encontrar una versión del logo con fondo transparente, pero esta versión medio estilizada me parece que queda bien-->
+                </a>
+                <p>Images, logos, and text are protected by appropriate copyright and trademark. Please do not copy or redistribute without written authorization.</p>
+                <p>Calle Imaginaria 54, 33</p>
+
+        </footer>
     </body>
 </html>
