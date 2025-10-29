@@ -1,61 +1,75 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ETGaming Comisiones</title>
+        <title>Cooked Presupuestos</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/estilos.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="../js/scripts.js"></script>
     </head>
-    <body>
-        <div id="all">
+    <body onload="calcular(), stickFooter()">
         <header>
-            <img id="logo" src="../imagenes/logo.png" alt="ETGaming" width="186" height="106">
+            <img src="../images/cooked.png" alt="logo" width="1024" height="1024">
         </header>
-        <div id="body">
-            </div>
-            <nav>
-                <ul class="menu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li ><a href="productos.html"> Productos </a></li>
-                    <li><a href="presupuestos.html" id="active"> Presupuestos</a></li>
-                    <li><a href="contacto.html"> Contacto </a></li>
-
-                </ul>
-            </nav>
-        <div id="formulario"> <!--El contenido de la web esta en inglés para ser potencialmente reutilizable en un futuro-->
+        <nav>
+            <ul>
+                <li><a href="../index.html">Index</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li id="active">Presupuestos</li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+         <div id="formulario" class="text-center">
          <form action="envio" method="post">
             <ul>
-                <li>Name: <input type="text" name="nombre" pattern="[A-Za-z \s]{1,99}" title="Names can't contain numbers or special characters" required> </li>
-                <li>Email: <input type="email" name="email" value="@gmail.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Not a valid email format" required>  </li>
-                <li>Phone Number:  <input type="tel" name="Phone" pattern="[0-9 \s]{9}" required>  </li> <!--Esto solo funcionaría para telefonos españoles sin prefijos de país, pero no quería sobrecomplicar el pattern en este ejercicio con la poca documentación que hay sobre el en internet en general-->
-                 <li>More info: <br> <textarea cols="30" rows="6" name="info" placeholder="Request more info"></textarea>  </li>
+                <li>Nombre: <input type="text" name="nombre" pattern="[A-Za-z]{1,15}" title="Names can't contain numbers or special characters" onchange="validar()" required> </li>
+                <li>Apellidos: <input type="text" name="apellidos" pattern="[A-Za-z \s]{1,40}" title="Names can't contain numbers or special characters" onchange="validar()" required> </li>
+                <li>Email: <input type="email" name="email" value="@gmail.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Not a valid email format" onchange="validar()" required>  </li>
+                <li>Numero de Telefono:  <input type="tel" name="Phone" pattern="[0-9]{1,9}" onchange="validar()" required>  </li>
+                <li>Plazo (en días): <input type="number" id="plazo" value="1" min="0" onchange="calcular()" required></li>
             </ul>
             <br>
-            RPG system: <select name="sistema">
-	            <option value="rojo">D&amp;D 5e</option>
-	            <option value="azul">Pathfinder 2e</option>
+            <fieldset>
+                <legend>Extras:</legend>
+                <input type="checkbox" name="recti" id="recti" onchange="calcular()">
+                <label for="recti">Derecho de Rectificación</label>
+                <input type="checkbox" name="propie" id="propie" onchange="calcular()">
+                <label for="propie">Propiedad Total</label>
+                <input type="checkbox" name="art" id="art" onchange="calcular()">
+                <label for="art">Artistas Reales</label>
+            </fieldset>
+            <br>
+            <select name="productos" onchange="calcular()">
+                    <option value="Verdad" selected>Noticia de Verdad</option>
+                    <option value="Media">Media Verdad</option>
+                    <option value="Cooked">Noticia Ligeramente Cocinada</option>
+                    <option value="Full">Noticia Totalmente Cocinada</option>
             </select>
-             Commission Type: <select name="type">
-	            <option value="rojo">Item</option>
-	            <option value="azul">Subclass</option>
-                <option value="azul">Other (Fill in more info)</option>
-            </select>
-            <input type="checkbox" value="terminos" required> Agree to terms and conditions.
-            <button type="submit">Send</button>
+            <input type="text" name="Presupuestos" id="Presupuestos" value="precio" readonly>
+            <br>
+            <button type="submit" id="boton">Enviar</button>
+            <button type="reset">Reset</button>
          </form>
-        </div>
-        </div>
+         </div>
 
-        <footer>
-                <a href="https://x.com/PF2epic">
-                    <img src="../imagenes/HDTwitterXNewLogoPNG.jpeg" alt="Twitter" width="736" height="736"> <!--He buscado bastante y no he podido encontrar una versión del logo con fondo transparente, pero esta versión medio estilizada me parece que queda bien-->
-                </a>
-                <p>Images, logos, and text are protected by appropriate copyright and trademark. Please do not copy or redistribute without written authorization.</p>
-                <p>Calle Imaginaria 54, 33</p>
-
+         <footer>
+            <div id="feet" class="text-center"><i>Images, logos, and text are protected by appropriate copyright and trademark. Please do not copy or redistribute without written authorization</i> </div>
+            <div><a href="https://x.com/sanchezcastejon/highlights?lang=es&lang=es"><img src="../images/twitter.png" alt="twitter" width="2500" height="2500"></a></div>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script>
+    window.addEventListener('load', stickFooter);
+    window.addEventListener('resize', stickFooter);
+        </script>
+
+
+
+
+
+
     </body>
 </html>

@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ETGaming Home</title>
+        <title>Cooked Index</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/estilos.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/scripts.js"></script>
     </head>
-    <body>
-        <div id="all">
+    <body onload="stickFooter()">
         <header>
-            <img id="logo" src="imagenes/logo.png" alt="ETGaming" width="186" height="106">
+            <img src="images/cooked.png" alt="logo" width="1024" height="1024">
         </header>
-        <div id="body">
-            </div>
-            <nav>
-                <ul class="menu">
-                    <li id="active"><a href="./index.html">Home</a></li>
-                    <li ><a href="views/productos.html"> Productos </a></li>
-                    <li><a href="views/presupuestos.html"> Presupuestos</a></li>
-                    <li><a href="views/contacto.html"> Contacto </a></li>
-
-                </ul>
-            </nav>
-        <section> <!--El contenido de la web esta en inglés para ser potencialmente reutilizable en un futuro-->
-            <h2>About Us</h2>
-            <p>ETGaming is a team of only 2 members developing TTRPG content for mainly dungeons and dragons 5th edition and pathfinder 2nd edition. We try to encourage the mostly forgotten high level play in those systems and try to give even more content for those players and DMs daring enough to already give the world of high level games a try. We understand the difficulty of DMing and playing such games, so we try and put at your disposition tools that'll help you with it. </p>
-        </section>
-        <section>
-            <h2>What will you find here?</h2>
-            <p>Here you'll find our premium paid books and free content to use in your campaign, and also some early access content in the form of teasers and kickstarters.</p>
-        </section>
-        <section>
-            <h2>Latest News</h2>
-            <p>The pf2epic kickstarter is launching later today! If you do not wanna miss loads of content beyond level 20 for pathfinder 2nd edition, back the production and guarantee yourself a digital or physical copy! </p>
-            <img id="logo2" src="imagenes/Portadapf2epic.png" alt="PF2EPIC" width="1236" height="800">
-        </section>
+        <nav>
+            <ul>
+                <li id="active">Index</li>
+                <li><a href="views/galeria.html">Galeria</a></li>
+                <li><a href="views/presupuestos.html">Presupuestos</a></li>
+                <li><a href="views/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="col-6 text-center section">
+            <section>
+                <h1>Cooked News</h1>
+                <p>El grupo Cooked News es un grupo de periodistas totalmente independientes que <s>cocina</s> escribe noticias completamente reales e independientes sin ningún tipo de sesgo, no nos dejamos comprar por nadie <s>que no tenga suficiente dinero para hacerlo</s> y hemos dedicado nuestra vida a informar a nuestros lectores con la información más veraz disponible en el mercado.</p>
+            </section>
+        </div>
+        <div class="col-6 text-center section">
+            <section>
+                <h2>Se buscan empleados</h2>
+                <p>Nos congratula anunciar que tras la dimisión del 80% del personal por supuestas practicas antiperiodisticas dentro de la empresa, abrimos nuestras puertas a cualquiera que quiera el honor de trabajar con nosotros y tenga las cualificaciones adecuadas para poder escribir noticias con nuestro usual nivel de veracidad y detalle.</p>
+            </section>
+        </div>
+        <div class="col-6 text-center section">
+            <section>
+                <h2>Venta de acciones</h2>
+                <p>Tras perder un valor en bolsa total de más de 80€ hemos decidido en la junta de accionistas realizar una ampliación de capital creando numerosos paquetes de acciones para vender en el mercado, para compras superiores al 10% de la empresa por favor referir al contacto de la empresa.</p>
+            </section>
+        </div>
+        <div class="col-6 text-center section" id="content">
+            <section>
+                <h2><a href="#" onclick="cargar()">Noticias de ejemplo 100% escritas por nosotros</a> </h2>
+                <h3 id="caja">Noticia Cargable</h3>
+                <i id="caja3"></i>
+                <p id="caja2"></p>
+            </section>
         </div>
         <footer>
-                <a href="https://x.com/PF2epic">
-                    <img src="imagenes/HDTwitterXNewLogoPNG.jpeg" alt="Twitter" width="736" height="736"> <!--He buscado bastante y no he podido encontrar una versión del logo con fondo transparente, pero esta versión medio estilizada me parece que queda bien-->
-                </a>
-                <p>Images, logos, and text are protected by appropriate copyright and trademark. Please do not copy or redistribute without written authorization.</p>
-                <p>Calle Imaginaria 54, 33</p>
-
+            <div id="feet" class="text-center"><i>Images, logos, and text are protected by appropriate copyright and trademark. Please do not copy or redistribute without written authorization</i> </div>
+            <div><a href="https://x.com/sanchezcastejon/highlights?lang=es&lang=es"><img src="../images/twitter.png" alt="twitter" width="2500" height="2500"></a></div>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script>
+    window.addEventListener('load', stickFooter);
+    window.addEventListener('resize', stickFooter);
+        </script>
     </body>
 </html>
