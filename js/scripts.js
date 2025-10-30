@@ -51,13 +51,30 @@ function stickFooter() {
 
 
 function validar() {
-    if (document.getElementsByName('nombre')[0].validity.valid == false||
-        document.getElementsByName('apellidos')[0].validity.valid == false||
-        document.getElementsByName('email')[0].validity.valid == false||
-        document.getElementsByName('Phone')[0].validity.valid == false) {
-        document.getElementById('boton').disabled = true;
-    }
-    else document.getElementById('boton').disabled = false;
+  const nombre = document.getElementsByName('nombre')[0];
+  const apellidos = document.getElementsByName('apellidos')[0];
+  const email = document.getElementsByName('email')[0];
+  const phone = document.getElementsByName('Phone')[0];
+  const boton = document.getElementById('boton'); 
+
+  const patrones = {
+    nombre: /^[A-Za-z]{1,15}$/,
+    apellidos: /^[A-Za-z\s]{1,40}$/,
+    email: /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/,
+    phone: /^[0-9]{1,9}$/
+  };
+
+  const validNombre = patrones.nombre.test(nombre.value.trim());
+  const validApellidos = patrones.apellidos.test(apellidos.value.trim());
+  const validEmail = patrones.email.test(email.value.trim());
+  const validPhone = patrones.phone.test(phone.value.trim());
+
+
+  if (validNombre && validApellidos && validEmail && validPhone) {
+    boton.disabled = false;
+  } else {
+    boton.disabled = true;
+  }
 }
 
 function calcular() {

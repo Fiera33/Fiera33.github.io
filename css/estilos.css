@@ -130,6 +130,11 @@ display: inline-block;
 nav {
     position: sticky;
     top: 1px;
+    background-color: rgba(204, 75, 28, 0.8);
+    width: 20%;
+    margin-left: 40%;
+    border: 4px dashed #cc4b1c;
+    
 }
 
 a:link {
